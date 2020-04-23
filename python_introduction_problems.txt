@@ -1,0 +1,229 @@
+Hackkerrank_Python_Solutions
+Problem-1
+
+Here is a sample line of code that can be executed in Python:
+
+print("Hello, World!")
+You can just as easily store a string as a variable and then print it to stdout:
+
+my_string = "Hello, World!"
+print(my_string)
+The above code will print Hello, World! on your screen. Try it yourself in the editor below!
+
+Input Format
+
+You do not need to read any input in this challenge.
+
+Output Format
+
+Print Hello, World! to stdout.
+
+Sample Output 0
+
+Hello, World!
+
+****
+print("Hello, World!")
+****
+
+----------------------------------
+Problem-2
+Task
+Given an integer, , perform the following conditional actions:
+
+If  is odd, print Weird
+If  is even and in the inclusive range of  to , print Not Weird
+If  is even and in the inclusive range of  to , print Weird
+If  is even and greater than , print Not Weird
+Input Format
+
+A single line containing a positive integer, .
+
+Constraints
+
+Output Format
+
+Print Weird if the number is weird; otherwise, print Not Weird.
+
+Sample Input 0
+
+3
+Sample Output 0
+
+Weird
+Explanation 0
+
+
+ is odd and odd numbers are weird, so we print Weird.
+
+Sample Input 1
+
+24
+Sample Output 1
+
+Not Weird
+Explanation 1
+
+
+ and  is even, so it isn't weird. Thus, we print Not Weird.
+
+********
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    n = int(input().strip())
+    if n%2==0 and n>2 and n<5:
+        print('Not Weird')
+    elif n%2==0 and n>6 and n<20:
+        print('Weird')
+    elif n%2==0 and n>20:
+        print("Not Weird")
+    else:
+        print('Weird')
+*******
+-------------------------------------------
+Problem-3
+Task
+Read two integers and print two lines. The first line should contain integer division,  // . The second line should contain float division,  / .
+
+You don't need to perform any rounding or formatting operations.
+
+Input Format
+
+The first line contains the first integer, . The second line contains the second integer, .
+
+Output Format
+
+Print the two lines as described above.
+
+Sample Input 0
+
+4
+3
+Sample Output 0
+
+1
+1.33333333333
+
+*************
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    print('{0}\n {1}'.format((a // b), (a / b)))
+*************
+-----------------------------------------
+Problem-4
+Task
+Read an integer . For all non-negative integers , print . See the sample for details.
+
+Input Format
+
+The first and only line contains the integer, .
+
+Constraints
+
+
+Output Format
+
+Print  lines, one corresponding to each .
+
+Sample Input 0
+
+5
+Sample Output 0
+
+0
+1
+4
+9
+16
+**************
+if __name__ == '__main__':
+    n = int(input())
+    for i in range(0,n):
+        print(i*i)
+**************
+--------------------------------------
+Problem-5
+
+We add a Leap Day on February 29, almost every four years. The leap day is an extra, or intercalary day and we add it to the shortest month of the year, February.
+In the Gregorian calendar three criteria must be taken into account to identify leap years:
+
+The year can be evenly divided by 4, is a leap year, unless:
+The year can be evenly divided by 100, it is NOT a leap year, unless:
+The year is also evenly divisible by 400. Then it is a leap year.
+This means that in the Gregorian calendar, the years 2000 and 2400 are leap years, while 1800, 1900, 2100, 2200, 2300 and 2500 are NOT leap years.Source
+
+Task
+You are given the year, and you have to write a function to check if the year is leap or not.
+
+Note that you have to complete the function and remaining code is given as template.
+
+Input Format
+
+Read y, the year that needs to be checked.
+
+Constraints
+
+
+Output Format
+
+Output is taken care of by the template. Your function must return a boolean value (True/False)
+
+Sample Input 0
+
+1990
+Sample Output 0
+
+False
+Explanation 0
+
+1990 is not a multiple of 4 hence it's not a leap year.
+*************
+def is_leap(year):
+    return year % 4 == 0 and (year % 400 == 0 or year % 100 != 0)
+
+year = int(input())
+**************
+----------------------------
+Problem-6
+
+Read an integer .
+
+Without using any string methods, try to print the following:
+
+
+Note that "" represents the values in between.
+
+Input Format
+
+The first line contains an integer .
+
+Output Format
+
+Output the answer as explained in the task.
+
+Sample Input 0
+
+3
+Sample Output 0
+
+123
+
+**************************
+if __name__ == '__main__':
+    n = int(input())
+    for i in range(1,(n+1)):
+        print(i,end="")
+**************************
+------------------------------
+
+
+
+
