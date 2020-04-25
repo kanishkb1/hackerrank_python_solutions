@@ -1,0 +1,300 @@
+Let's learn about list comprehensions! You are given three integers  and  representing the dimensions of a cuboid along with an integer . You have to print a list of all possible coordinates given by  on a 3D grid where the sum of  is not equal to . Here, 
+
+Input Format
+
+Four integers  and  each on four separate lines, respectively.
+
+Constraints
+
+Print the list in lexicographic increasing order.
+
+Sample Input 0
+
+1
+1
+1
+2
+Sample Output 0
+
+[[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 0], [1, 1, 1]]
+Explanation 0
+
+Concept
+
+You have already used lists in previous hacks. List comprehensions are an elegant way to build a list without having to use different for loops to append values one by one. This example might help.
+
+Example: You are given two integers x and y . You need to find out the ordered pairs ( i , j ) , such that ( i + j ) is not equal to n and print them in lexicographic order.( 0 <= i <= x ) and ( 0 <= j <= y) This is the code if we dont use list comprehensions in Python.
+
+python x = int ( raw_input()) y = int ( raw_input()) n = int ( raw_input()) ar = [] p = 0 for i in range ( x + 1 ) : for j in range( y + 1): if i+j != n: ar.append([]) ar[p] = [ i , j ] p+=1 print ar
+Other smaller codes may also exist, but using list comprehensions is always a good option. Code using list comprehensions:
+
+python x = int ( raw_input()) y = int ( raw_input()) n = int ( raw_input()) print [ [ i, j] for i in range( x + 1) for j in range( y + 1) if ( ( i + j ) != n )]
+
+Sample Input 1
+
+2
+2
+2
+2
+Sample Output 1
+
+[[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 2], [0, 2, 1], [0, 2, 2], [1, 0, 0], [1, 0, 2], [1, 1, 1], [1, 1, 2], [1, 2, 0], [1, 2, 1], [1, 2, 2], [2, 0, 1], [2, 0, 2], [2, 1, 0], [2, 1, 1], [2, 1, 2], [2, 2, 0], [2, 2, 1], [2, 2, 2]]
+
+***********************
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    print([[a, b, c] for a in range(x + 1) for b in range(y + 1) for c in range( z + 1) if a+b+c != n ])
+**********************
+---------------------------------------
+Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score. You are given  scores. Store them in a list and find the score of the runner-up.
+
+Input Format
+
+The first line contains . The second line contains an array   of  integers each separated by a space.
+
+Constraints
+
+Output Format
+
+Print the runner-up score.
+
+Sample Input 0
+
+5
+2 3 6 6 5
+Sample Output 0
+
+5
+Explanation 0
+
+Given list is . The maximum score is , second maximum is . Hence, we print  as the runner-up score.
+*****************************
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    largest = max(arr)
+
+for i in range(n):
+    if largest == max(arr):
+        arr.remove(max(arr))
+
+print(max(arr))
+*****************************
+
+--------------------------------------------
+Given the names and grades for each student in a Physics class of  students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+
+Note: If there are multiple students with the same grade, order their names alphabetically and print each name on a new line.
+
+Input Format
+
+The first line contains an integer, , the number of students.
+The  subsequent lines describe each student over  lines; the first line contains a student's name, and the second line contains their grade.
+
+Constraints
+
+There will always be one or more students having the second lowest grade.
+Output Format
+
+Print the name(s) of any student(s) having the second lowest grade in Physics; if there are multiple students, order their names alphabetically and print each one on a new line.
+
+Sample Input 0
+
+5
+Harry
+37.21
+Berry
+37.21
+Tina
+37.2
+Akriti
+41
+Harsh
+39
+Sample Output 0
+
+Berry
+Harry
+Explanation 0
+
+There are  students in this class whose names and grades are assembled to build the following list:
+
+python students = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41], ['Harsh', 39]]
+
+The lowest grade of  belongs to Tina. The second lowest grade of  belongs to both Harry and Berry, so we order their names alphabetically and print each name on a new line.
+
+*************************
+marksheet=[]
+scorelist=[]
+if __name__ == '__main__':
+        for _ in range(int(input())):
+                name = input()
+                score = float(input())
+                marksheet+=[[name,score]]
+                scorelist+=[score]
+        b=sorted(list(set(scorelist)))[1] 
+
+        for a,c in sorted(marksheet):
+             if c==b:
+                    print(a)
+************************
+----------------------------------
+You have a record of  students. Each record contains the student's name, and their percent marks in Maths, Physics and Chemistry. The marks can be floating values. The user enters some integer  followed by the names and marks for  students. You are required to save the record in a dictionary data type. The user then enters a student's name. Output the average percentage marks obtained by that student, correct to two decimal places.
+
+Input Format
+
+The first line contains the integer , the number of students. The next  lines contains the name and marks obtained by that student separated by a space. The final line contains the name of a particular student previously listed.
+
+Constraints
+
+Output Format
+
+Print one line: The average of the marks obtained by the particular student correct to 2 decimal places.
+
+Sample Input 0
+
+3
+Krishna 67 68 69
+Arjun 70 98 63
+Malika 52 56 60
+Malika
+Sample Output 0
+
+56.00
+Explanation 0
+
+Marks for Malika are  whose average is 
+
+Sample Input 1
+
+2
+Harsh 25 26.5 28
+Anurag 26 28 30
+Harsh
+Sample Output 1
+
+26.50
+
+******************
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        scores=sum(scores)/3
+        student_marks[name] = scores
+    query_name = input()    
+    print('%.2f' % student_marks[query_name])
+*******************
+-----------------------------------------
+Consider a list (list = []). You can perform the following commands:
+
+insert i e: Insert integer  at position .
+print: Print the list.
+remove e: Delete the first occurrence of integer .
+append e: Insert integer  at the end of the list.
+sort: Sort the list.
+pop: Pop the last element from the list.
+reverse: Reverse the list.
+Initialize your list and read in the value of  followed by  lines of commands where each command will be of the  types listed above. Iterate through each command in order and perform the corresponding operation on your list.
+
+Input Format
+
+The first line contains an integer, , denoting the number of commands.
+Each line  of the  subsequent lines contains one of the commands described above.
+
+Constraints
+
+The elements added to the list must be integers.
+Output Format
+
+For each command of type print, print the list on a new line.
+
+Sample Input 0
+
+12
+insert 0 5
+insert 1 10
+insert 0 6
+print
+remove 6
+append 9
+append 1
+sort
+print
+pop
+reverse
+print
+Sample Output 0
+
+[6, 5, 10]
+[1, 5, 9, 10]
+[9, 5, 1]
+
+*********************
+Q = []
+if __name__ == '__main__':
+    N = int(input())
+for i in range(0,N):
+    token=input().split()
+
+    if token[0]=='insert':
+        Q.insert(int(token[1]),int(token[2]))
+    elif token[0]=='print':
+        print(Q)
+    elif token[0]=='remove':
+        Q.remove(int(token[1]))
+    elif token[0]=='append':
+        Q.append(int(token[1]))
+    elif token[0]=='sort':
+        Q.sort()
+    elif token[0]=='pop':
+        Q.pop()
+    elif token[0]=='reverse':
+        Q.reverse()
+    else:
+        pass
+********************
+--------------------------------------------------
+Task
+Given an integer, , and  space-separated integers as input, create a tuple, , of those  integers. Then compute and print the result of .
+
+Note: hash() is one of the functions in the __builtins__ module, so it need not be imported.
+
+Input Format
+
+The first line contains an integer, , denoting the number of elements in the tuple.
+The second line contains  space-separated integers describing the elements in tuple .
+
+Output Format
+
+Print the result of .
+
+Sample Input 0
+
+2
+1 2
+Sample Output 0
+
+3713081631934410656
+
+**********************
+if __name__ == '__main__':
+    n = int(input())
+    s = [int(num) for num in input().strip().split(' ')]
+    s = tuple(s)
+    print(hash(s))
+*********************
+-----------------------------------------------
+        
+        
+        
+        
+        
+        
+        
+        
